@@ -11,7 +11,6 @@
   </div>
 </template>
 
-
 <script>
 /*import HelloWorld from './components/HelloWorld.vue'*/
 //import: componente está sendo importado
