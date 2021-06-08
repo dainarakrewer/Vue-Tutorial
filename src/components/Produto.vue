@@ -4,7 +4,10 @@
         <h3>Estes são meus produtos!</h3>
         <div>
             <!-- :key foi add por ter bug no for link:https://stackoverflow.com/questions/47608379/vue-language-server-elements-in-iteration-expect-to-have-v-bindkey-directiv-->
-            <p v-for="produto in Produtos" :key="produto.id">{{produto}}</p>
+            <p v-for="produto in Produtos" :key="produto.id">
+                {{produto.nome}} - R${{produto.valor}},00 
+            </p>
+            <hr>
         </div>
     </div>    
 </template>
@@ -14,7 +17,11 @@
 export default  {
     data(){
         return{
-            Produtos: ['Celular', 'TV', 'Fogão', 'Geladeira']
+            Produtos: [
+                {nome: 'Celular', valor: 2500}, 
+                {nome: 'TV', valor: 3800},
+                {nome: 'Fogão', valor: 2417},
+                {nome: 'Geladeira', valor: 5000}]
         }
     }
 }

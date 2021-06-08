@@ -24,15 +24,17 @@
       <Cliente :cliente="clienteDainara"/>
       <hr>
       <Cliente :cliente="clienteJoao"/> 
-    </div> -->
-    <div id="dainara">
+    </div> 
+    <div>
       <Cliente :cliente="clienteDainara"/>
-    </div><!--
-    --><div  id = "joao">
-      <Cliente :cliente="clienteJoao"/> 
     </div>
+    <div>
+      <Cliente :cliente="clienteJoao"/> 
+    </div>-->
+
     <!-- prop para preencher var manual
     <Cliente nome="Maria" email="maria@teste.com" idade="18"/>-->
+    <Cliente/>
     <hr>
     <Produto />
   </div>
@@ -82,4 +84,5 @@ export default {
     padding: 4px;
     text-align: center;
   }
+
 </style>

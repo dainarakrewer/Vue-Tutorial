@@ -14,14 +14,28 @@ um componente só pode ter uma tag raiz-->
         função jscript 
         {{2 + 2 * 2}}-->
 
-        <!--recebendo valor do objeto cliente-->
+        <!--recebendo valor do objeto cliente
         <h4>Nome: {{cliente.nome}}</h4>
         <hr>
-        <!--<p>{{descricao}}</p>
-        <p>Número: {{numero}}</p>-->
+        <p>{{descricao}}</p>
+        <p>Número: {{numero}}</p>
         <p>Email: {{cliente.email}}</p>
         <p>Idade: {{cliente.idade}}</p>
+        
+        Prever o comportamente do submit
+        <form v-on:submit.prevent="alterarTexto('Teste')">
+            <input type="text" v-model="escreveAqui"/>
+        </form>
 
+        Só muda o texto dentro do input quando der um enter-->
+        <input type="text" v-model="escreveAqui" v-on:keyup.enter="alterarTexto()"/>
+
+        <ul>
+            <li v-for="nome in arrayTeste" :key="nome.id">
+                {{nome}}
+                <hr>
+            </li>
+        </ul>
     </div>
 </template>
 
@@ -35,6 +49,8 @@ export default  {
             email: "dainarakrewer@cloudcrm.tech",
             idade: 22,
             descricao: "Uma descrição aqui!"*/
+            escreveAqui: "",
+            arrayTeste: []
         }
     },
     props: {
@@ -44,6 +60,15 @@ export default  {
         idade: Number,
         //tipo objeto
         cliente: Object
+    },
+    methods: {
+        alterarTexto(/*nome*/){
+            //this.escreveAqui = nome;
+            //ao clicar em enter, add o valor passado para o array
+            this.arrayTeste.push(this.escreveAqui);
+            //limpa o input
+            this.escreveAqui = '';
+        }
     }
 }
 </script>
