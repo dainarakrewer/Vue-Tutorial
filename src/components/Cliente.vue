@@ -31,7 +31,7 @@ um componente só pode ter uma tag raiz-->
         <input type="text" v-model="escreveAqui" v-on:keyup.enter="alterarTexto()"/>
 
         <ul>
-            <li v-for="nome in arrayTeste" :key="nome.id">
+            <li v-for="nome in arrayTeste" :key="nome.id" @click="alerta">
                 {{nome}}
                 <hr>
             </li>
@@ -68,6 +68,10 @@ export default  {
             this.arrayTeste.push(this.escreveAqui);
             //limpa o input
             this.escreveAqui = '';
+        },
+        alerta(event){
+            //ao clicar no input add, traz o valor do input
+            alert(event.target.textContent.trim());
         }
     }
 }
