@@ -40,6 +40,7 @@
   </div>
 </template>
 
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
 <script>
 /*import HelloWorld from './components/HelloWorld.vue'*/
@@ -71,7 +72,7 @@ export default {
   components: {
     Cliente,
     Produto
-  }
+  }   
 }
 </script>
 

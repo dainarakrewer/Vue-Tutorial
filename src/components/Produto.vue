@@ -10,7 +10,9 @@
                 <input @click="corP($event.target.id)" type="radio" name="cor" :id="produto.cor"> {{produto.cor}}-->
             </p>
             <hr>
-            <p v-bind:class="{red: colors.vermelho, green: colors.verde, blue: colors.azul, yellow: colors.amarelo}">
+            <!-- v-bind:class="{red: colors.vermelho, green: colors.verde, blue: colors.azul, yellow: colors.amarelo}" 
+            ref: dando um nome ao p (como um id) para utilizar o CSS-->
+            <p ref="teste"> 
                 Mude a cor aqui!
             </p>
 
@@ -34,42 +36,51 @@ export default  {
                 {nome: 'Fogão', valor: 2417, /*cor: 'blue'*/},
                 {nome: 'Geladeira', valor: 5000, /*cor:'yellow'*/}],
             
+            /*v-bind: class e mudança de cor q fracassou
             colors: {
                 vermelho: false,
                 verde:false,
                 azul: false,
                 amarelo: false
-            }
+            }*/
                 //classProduto: 'white'
         }
     },
     methods: {
     /*corP(){
             this.classProduto = "Produtos.cor";
-        }*/
+        }
+         v-bind: class e mudança de cor q fracassou*/
             vermelho(){
+                /*
                 this.colors.vermelho = true;
                 this.colors.verde = false;
                 this.colors.azul = false;
-                this.colors.amarelo = false;
+                this.colors.amarelo = false;*/
+                //para acessar as referencias, utilizar $
+                //definindo que a cor do texto vai ser vermelho (neste caso)
+                this.$refs.teste.style.color = "red";
             },
             verde(){
-                this.colors.vermelho = false;
+                /*this.colors.vermelho = false;
                 this.colors.verde = true;
                 this.colors.azul = false;
-                this.colors.amarelo = false;
+                this.colors.amarelo = false;*/
+                this.$refs.teste.style.color = "green";
             },
             azul(){
-                this.colors.vermelho = false;
+                /*this.colors.vermelho = false;
                 this.colors.verde = false;
                 this.colors.amarelo = false;
-                this.colors.azul = true;
+                this.colors.azul = true;*/
+                this.$refs.teste.style.color = "blue";
             },
             amarelo(){
-                this.colors.vermelho = false;
+                /*this.colors.vermelho = false;
                 this.colors.verde = false;
                 this.colors.azul = false;
-                this.colors.amarelo = true;
+                this.colors.amarelo = true;*/
+                this.$refs.teste.style.color = "yellow";
             }
     }
 }
@@ -77,6 +88,8 @@ export default  {
 
 <!--scoped: tudo que for definido dentro da tag só será aplicado neste componente específico-->
 <style scoped>
+
+    /* v-bind: class e mudança de cor q fracassou
     .red{
         color: red;
     }
@@ -91,5 +104,5 @@ export default  {
 
     .yellow{
         color: yellow;
-    } 
+    }*/ 
 </style>
